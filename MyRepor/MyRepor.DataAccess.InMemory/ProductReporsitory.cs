@@ -37,7 +37,7 @@ namespace MyRepor.DataAccess.InMemory
         {
             Product productToUpdate = products.Find(p => p.Id == product.Id);
 
-            if(productToUpdate!==null)
+            if(productToUpdate != null)
             {
                 productToUpdate = product;
             }
@@ -51,7 +51,7 @@ namespace MyRepor.DataAccess.InMemory
         {
             Product product = products.Find(p => p.Id == Id);
 
-            if (product !== null)
+            if (product != null)
             {
                 return product;
             }
@@ -70,7 +70,7 @@ namespace MyRepor.DataAccess.InMemory
         {
             Product productToDelete = products.Find(p => p.Id == Id);
 
-            if (productToDelete !== null)
+            if (productToDelete != null)
             {
                 products.Remove(productToDelete);
             }
