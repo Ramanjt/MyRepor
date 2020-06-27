@@ -30,13 +30,11 @@ namespace MyRepor.DataAccess.InMemory
         public void Insert(Product p)
         {
             products.Add(p);
-
         }
 
         public void Update(Product product)
         {
             Product productToUpdate = products.Find(p => p.Id == product.Id);
-
             if(productToUpdate != null)
             {
                 productToUpdate = product;
