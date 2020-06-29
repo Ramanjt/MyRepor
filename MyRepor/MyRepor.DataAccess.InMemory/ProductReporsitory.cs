@@ -34,6 +34,7 @@ namespace MyRepor.DataAccess.InMemory
 
         public void Update(Product product)
         {
+            // to find and update
             Product productToUpdate = products.Find(p => p.Id == product.Id);
             if(productToUpdate != null)
             {

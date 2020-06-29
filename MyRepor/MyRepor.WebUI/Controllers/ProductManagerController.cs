@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 // Add refrence core models
 using MyRepor.Core.Models;
+using MyRepor.Core.ViewModels;
 using MyRepor.DataAccess.InMemory;
 
 namespace MyRepor.WebUI.Controllers
@@ -12,10 +13,12 @@ namespace MyRepor.WebUI.Controllers
     public class ProductManagerController : Controller
     {
         ProductReporsitory context;
+        ProductCategoryRepository productCategories;
 
         public ProductManagerController()
         {
             context = new ProductReporsitory();
+            productCategories = new ProductCategoryRepository();
         }
         // GET: ProductManager
         public ActionResult Index()
@@ -26,8 +29,12 @@ namespace MyRepor.WebUI.Controllers
 
         public ActionResult Create()
         {
-            Product product = new Product();
-            return View(product);
+            ProductManagerViewModel viewModel = new ProductManagerViewModel();
+            // Product product = new Product();
+            viewModel.Product = new Product();
+            viewModel.ProductCategories = productCategories.Collection();
+            //return View(product);
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -54,7 +61,12 @@ namespace MyRepor.WebUI.Controllers
                 return HttpNotFound();
             } else
             {
-                return View(product);
+                ProductManagerViewModel viewModel = new ProductManagerViewModel();
+                viewModel.Product = product;
+                viewModel.ProductCategories = productCategories.Collection();
+
+                //return View(product);
+                return View(viewModel);
             }
         }
 
