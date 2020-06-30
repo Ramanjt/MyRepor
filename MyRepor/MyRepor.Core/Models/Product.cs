@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MyRepor.Core.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public string Id { get; set; }
+        //public string Id { get; set; }
         
         [StringLength(20)] // Add refrence 
         [DisplayName("Product Name")]
@@ -24,10 +24,12 @@ namespace MyRepor.Core.Models
 
         
         // constructor
+        /*
         public Product()
         {
             this.Id = Guid.NewGuid().ToString();
         }
+        */
 
     }
 }

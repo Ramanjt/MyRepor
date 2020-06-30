@@ -12,13 +12,17 @@ namespace MyRepor.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        ProductReporsitory context;
-        ProductCategoryRepository productCategories;
+        InMemoryRepository<Product> context;
+        InMemoryRepository<ProductCategory> productCategories;
+        //ProductReporsitory context;
+        //ProductCategoryRepository productCategories;
 
         public ProductManagerController()
         {
-            context = new ProductReporsitory();
-            productCategories = new ProductCategoryRepository();
+            //context = new ProductReporsitory();
+            //productCategories = new ProductCategoryRepository();
+            context = new InMemoryRepository<Product>();
+            productCategories = new InMemoryRepository<ProductCategory>();
         }
         // GET: ProductManager
         public ActionResult Index()
