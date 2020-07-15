@@ -1,4 +1,5 @@
-﻿using MyRepor.Core.Models;
+﻿using MyRepor.Core.Contracts;
+using MyRepor.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyRepor.DataAccess.InMemory
 {
-    public class InMemoryRepository<T> : IInMemoryRepository<T> where T : BaseEntity
+    public class InMemoryRepository<T> : IRepository<T> where T : BaseEntity
     {
         ObjectCache cache = MemoryCache.Default;
         List<T> items;

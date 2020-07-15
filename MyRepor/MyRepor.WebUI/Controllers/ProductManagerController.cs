@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyRepor.Core.Contracts;
 // Add refrence core models
 using MyRepor.Core.Models;
 using MyRepor.Core.ViewModels;
@@ -12,17 +13,13 @@ namespace MyRepor.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        InMemoryRepository<Product> context;
-        InMemoryRepository<ProductCategory> productCategories;
-        //ProductReporsitory context;
-        //ProductCategoryRepository productCategories;
-
-        public ProductManagerController()
+        IRepository<Product> context;
+        IRepository<ProductCategory> productCategories;
+        
+        public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategoryContext)
         {
-            //context = new ProductReporsitory();
-            //productCategories = new ProductCategoryRepository();
-            context = new InMemoryRepository<Product>();
-            productCategories = new InMemoryRepository<ProductCategory>();
+            context = productContext;
+            productCategories = productCategoryContext;
         }
         // GET: ProductManager
         public ActionResult Index()

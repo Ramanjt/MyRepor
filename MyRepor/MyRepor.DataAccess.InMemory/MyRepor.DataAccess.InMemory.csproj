@@ -42,10 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IInMemoryRepository.cs" />
     <Compile Include="InMemoryRepository.cs" />
-    <Compile Include="ProductCategoryRepository.cs" />
-    <Compile Include="ProductReporsitory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

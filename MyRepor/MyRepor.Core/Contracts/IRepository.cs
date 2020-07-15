@@ -1,9 +1,10 @@
 ﻿using MyRepor.Core.Models;
 using System.Linq;
 
-namespace MyRepor.DataAccess.InMemory
+namespace MyRepor.Core.Contracts
 {
-    public interface IInMemoryRepository<T> where T : BaseEntity
+   // public interface IInMemoryRepository<T> where T : BaseEntity
+    public interface IRepository<T> where T : BaseEntity
     {
         IQueryable<T> Collection();
         void Commit();

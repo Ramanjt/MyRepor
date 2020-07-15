@@ -1,4 +1,5 @@
-﻿using MyRepor.Core.Models;
+﻿using MyRepor.Core.Contracts;
+using MyRepor.Core.Models;
 using MyRepor.DataAccess.InMemory;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,10 @@ namespace MyRepor.WebUI.Controllers
 {
     public class ProductCategoryManagerController : Controller
     {
-        // GET: ProductCategoryManager
-        //ProductCategoryRepository context;
-        InMemoryRepository<ProductCategory> context;
-
-        public ProductCategoryManagerController()
+        IRepository<ProductCategory> context;
+        public ProductCategoryManagerController(IRepository<ProductCategory> context)
         {
-            //context = new ProductCategoryRepository();
-            context = new InMemoryRepository<ProductCategory>();
+            this.context = context;
         }
         // GET: ProductManager
         public ActionResult Index()
