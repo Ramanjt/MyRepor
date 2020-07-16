@@ -30,6 +30,5 @@ namespace MyRepor.Core.Models
             this.Id = Guid.NewGuid().ToString();
         }
         */
-
     }
 }
