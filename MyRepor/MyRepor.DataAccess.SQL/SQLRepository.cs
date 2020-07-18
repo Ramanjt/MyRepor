@@ -16,6 +16,7 @@ namespace MyRepor.DataAccess.SQL
 
         public SQLRepository(DataContext context)
         {
+            //constructor
             this.context = context;
             this.dbSet = context.Set<T>();
         }

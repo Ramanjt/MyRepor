@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyRepor.Core.Contracts;
 // Add refrence core models
 using MyRepor.Core.Models;
 using MyRepor.Core.ViewModels;
+using MyRepor.Core.Contracts;
 using MyRepor.DataAccess.InMemory;
 
 namespace MyRepor.WebUI.Controllers
@@ -39,7 +40,7 @@ namespace MyRepor.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if(!ModelState.IsValid)
             {
@@ -47,6 +48,13 @@ namespace MyRepor.WebUI.Controllers
             }
             else
             {
+                if(file!=null)
+                {
+                    // to file out what is actually extension is
+                    product.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + product.Image);
+                }
+
                 context.Insert(product);
                 context.Commit();
 
@@ -72,7 +80,7 @@ namespace MyRepor.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product product, string Id)
+        public ActionResult Edit(Product product, string Id, HttpPostedFileBase file)
         {
             Product productToEdit = context.Find(Id);
             if (productToEdit == null)
@@ -86,9 +94,16 @@ namespace MyRepor.WebUI.Controllers
                     return View(product);
                 }
 
+                if (file != null)
+                {
+                    // to file out what is actually extension is
+                    productToEdit.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + productToEdit.Image);
+                }
+
                 productToEdit.Category = product.Category;
                 productToEdit.Description = product.Description;
-                productToEdit.Image = product.Image;
+                //productToEdit.Image = product.Image;
                 productToEdit.Name = product.Name;
                 productToEdit.Price = product.Price;
 

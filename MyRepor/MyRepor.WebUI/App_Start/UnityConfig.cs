@@ -3,7 +3,6 @@ using MyRepor.Core.Models;
 using MyRepor.DataAccess.InMemory;
 using MyRepor.DataAccess.SQL;
 using System;
-
 using Unity;
 
 namespace MyRepor.WebUI

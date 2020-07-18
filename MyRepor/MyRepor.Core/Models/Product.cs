@@ -12,7 +12,7 @@ namespace MyRepor.Core.Models
     {
         //public string Id { get; set; }
         
-        [StringLength(50)] // Add refrence 
+        [StringLength(20)] // Add refrence 
         [DisplayName("Product Name")]
         public string Name { get; set; }
         public string Description { get; set; }
