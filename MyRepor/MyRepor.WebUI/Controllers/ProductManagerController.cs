@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-// Add refrence core models
 using MyRepor.Core.Models;
 using MyRepor.Core.ViewModels;
 using MyRepor.Core.Contracts;
