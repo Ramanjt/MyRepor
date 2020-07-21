@@ -2,6 +2,7 @@ using MyRepor.Core.Contracts;
 using MyRepor.Core.Models;
 using MyRepor.DataAccess.InMemory;
 using MyRepor.DataAccess.SQL;
+using MyRepor.Services;
 using System;
 using Unity;
 
@@ -47,6 +48,9 @@ namespace MyRepor.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
         }
     }
 }

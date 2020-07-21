@@ -80,6 +80,7 @@ namespace MyRepor.Services
                     Quantity = 1
                 };
 
+
                 basket.BasketItems.Add(item);
             }
             else
@@ -133,6 +134,8 @@ namespace MyRepor.Services
 
             if(basket != null)
             {
+                
+
                 int? basketCount = (from item in basket.BasketItems
                                     select item.Quantity).Sum();
                 decimal? basketTotal = (from item in basket.BasketItems
